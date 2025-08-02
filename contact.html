@@ -35,22 +35,18 @@
 
 <p class="cursor typewriter-animation2">Have a question? Send us a message below.</p>
 
-<div class="box1">
 <main>
+<div class="box1">
   <h1 style="text-align: center;">Contact Us</h1>
   <p class="subtitle">If you have questions or would like to get in touch, use the form below:</p>
 </div>
 </main>
 
- <form action="https://formsubmit.co/faithandgrain@yahoo.com" method="POST">
-    <!-- Replace with your real email -->
-    
-    <!-- Optional settings -->
+  <form id="contactForm" action="https://formsubmit.co/faithandgrain@yahoo.com" method="POST">
     <input type="hidden" name="_captcha" value="false">
     <input type="hidden" name="_template" value="table">
     <input type="hidden" name="_next" value="https://yourdomain.com/thank-you.html">
 
-    <!-- Form fields -->
     <label for="name">Your Name:</label><br>
     <input type="text" name="name" required><br><br>
 
@@ -61,40 +57,10 @@
     <textarea name="message" rows="5" required></textarea><br><br>
 
     <button type="submit">Send</button>
+    <p id="formStatus" style="margin-top: 15px; display: none;"></p>
   </form>
+</main>
 
-<script>
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-
-  const form = e.target;
-  const formData = new FormData(form);
-  const status = document.getElementById('formStatus');
-
-  fetch('https://formsubmit.co/ajax/faithandgrain@yahoo.com', {
-    method: 'POST',
-    body: formData,
-    headers: {
-      'Accept': 'application/json'
-    }
-  })
-  .then(response => {
-    if (response.ok) {
-      form.reset();
-      status.textContent = "✅ Message sent successfully!";
-      status.style.color = "green";
-      status.style.display = "block";
-    } else {
-      throw new Error('Form submission failed.');
-    }
-  })
-  .catch(error => {
-    status.textContent = "❌ Oops! There was a problem.";
-    status.style.color = "red";
-    status.style.display = "block";
-  });
-});
-</script>
 
 <script src="script.js"></script>
 </body>

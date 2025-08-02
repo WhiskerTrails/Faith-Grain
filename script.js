@@ -10,4 +10,3 @@ function closeNav() {
   document.getElementById("main").style.marginLeft = "0";
   document.querySelector(".openbtn").style.display = "block";
 }
-
